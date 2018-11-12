@@ -77,7 +77,7 @@ hX2 = Theta2 * a2';
 a3 = sigmoid(hX2');
 nn_params2 = [Theta1(:,2:end)(:); Theta2(:,2:end)(:)];
 
-J = -1/m*sum(diag((y_all'*log(a3)+(1-y_all')*log(1-a3))));
+J = -1/m*sum(sum((y_all.*log(a3)+(1-y_all).*log(1-a3))));
 J = J + lambda/(2*m)*nn_params2'*nn_params2;
 
 % Gradient calculaion
